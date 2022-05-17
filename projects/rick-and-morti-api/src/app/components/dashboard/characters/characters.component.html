@@ -1,0 +1,49 @@
+  <div *ngIf="localList !== ''">
+
+    <mat-toolbar>
+      <span class="myspace"></span>
+      <span>Personajes</span>
+      <span class="myspace"></span>
+    </mat-toolbar>
+
+    <mat-grid-list cols="4" rowHeight="2:2">
+      <mat-grid-tile *ngFor="let item of localList.results">
+        <mat-card class="example-card">
+          <mat-card-title-group>
+            <mat-card-title>
+              {{item.name}}
+            </mat-card-title>
+            <img mat-card-lg-image src={{item.image}} >
+          </mat-card-title-group>
+          <mat-card-content>
+          <mat-card-title-group>
+            <div class="data">
+              <div class="status">
+                <strong>Estatus:</strong>
+                {{item.status}}
+              </div>
+              <div class="specie">
+                <strong>Especie:</strong>
+                 {{item.species}}
+              </div>
+              <div class="gender">
+                <strong>Genero:</strong>
+                 {{item.gender}}
+              </div>
+              <div class="created">
+                <strong>Creado:</strong>
+                 {{item.created|date}}
+              </div>
+            </div>
+            <div class="buttons">
+              <button mat-flat-button color="warn" (click)="deleteCharacter(item.id)">Eliminar</button>
+              <button mat-flat-button routerLink={{item.id}} color="primary">Editar</button>
+            </div>
+          </mat-card-title-group>
+
+          </mat-card-content>
+
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

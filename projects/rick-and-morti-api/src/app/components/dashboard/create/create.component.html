@@ -1,0 +1,125 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Crear Personaje</span>
+    <span class="myspace"></span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px">
+    <form [formGroup]="form" (ngSubmit)="create()">
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="an">
+            <mat-label>Nombre</mat-label>
+            <input matInput autocomplete="off" formControlName="name" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="an">
+            <mat-label>Tipo</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option *ngFor="let itemStatus of statusCharacter" [value]="itemStatus">
+                    {{itemStatus}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="an">
+            <mat-label>Especie</mat-label>
+            <input matInput autocomplete="off" formControlName="species" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="3">
+
+          <div class="borderImg" *ngIf="dataimage ==='';else templateName" (click)="csvInput.click()">
+            <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="imgInputChange($event)" accept=".jpg" formControlName="image"/>
+            <label><strong>Seleccione una imagen </strong></label>
+          </div>
+        <ng-template #templateName>
+          <mat-card-title-group>
+            <div class="imagLoad">
+              <div class="imgOk">
+                <img src="{{dataimage}}" alt="" width="300">
+              </div>
+              <div class="labelreload" (click)="clean()">
+                Limpiar
+              </div>
+            </div>
+          </mat-card-title-group>
+        </ng-template>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="an">
+            <mat-label>Tipo</mat-label>
+            <input matInput autocomplete="off" formControlName="type" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="an">
+            <mat-label>Género</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option *ngFor="let itemGender of genderCharacter" [value]="itemGender">
+                    {{itemGender}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="anch">
+            <mat-label>Fecha</mat-label>
+            <input matInput formControlName="created" [matDatepicker]="picker" [value]="date" (dateChange)="dateChanged($event)" >
+            <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+            <mat-datepicker #picker> </mat-datepicker>
+        </mat-form-field>
+        </mat-grid-tile>
+
+
+        <div formGroupName="origin">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="an">
+              <mat-label>Origen</mat-label>
+              <input matInput autocomplete="off" name="nameOrigin" formControlName="name" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="an">
+              <mat-label>URL Origen</mat-label>
+              <input matInput autocomplete="off" name="urlOrigin" formControlName="url" />
+            </mat-form-field>
+          </mat-grid-tile>
+        </div>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            Aceptar
+          </button>
+        </mat-grid-tile>
+
+        <div formGroupName="location">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="an">
+              <mat-label>Ubicación</mat-label>
+              <input matInput autocomplete="off" name="nameLocation" formControlName="name" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="an">
+              <mat-label>URL Ubicación</mat-label>
+              <input matInput autocomplete="off" name="urlLocation" formControlName="url" />
+            </mat-form-field>
+          </mat-grid-tile>
+        </div>
+
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>
+

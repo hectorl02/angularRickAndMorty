@@ -1,0 +1,31 @@
+mat-card, mat-toolbar {
+  background: #98dada;
+
+}
+mat-grid-tile img {
+  border: 1px solid #000000;
+}
+.borderImg{
+  width: 270px;
+  height: 270px;
+  border: 1px solid #000000;
+}
+div > input {
+  margin-top: 50px;
+}
+
+mat-grid-tile span{
+  height: 200px;
+  width: 300px;
+}
+
+label {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.labelreload{
+  background: rgb(126, 126, 223);
+  text-align: center;
+  padding: 10px;
+  color: white;
+}

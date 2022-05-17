@@ -1,0 +1,28 @@
+mat-card-title {
+  margin-right: 15px;
+}
+
+img{
+  border-radius: 10px;
+}
+
+.example-card, mat-toolbar{
+  background: #b0cbf5;
+}
+
+.data{
+  font-size: 16px;
+}
+
+mat-card-content{
+  padding-top: 10px;
+}
+
+.buttons{
+  margin-top: 50px;
+}
+button{
+  margin: 5px;
+}
+
+

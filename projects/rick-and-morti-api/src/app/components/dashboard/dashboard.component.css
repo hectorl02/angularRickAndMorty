@@ -1,0 +1,12 @@
+.frame {
+  height: auto;
+  padding: 50px;
+  background: #d1ea7b;
+}
+img{
+  display: block;
+  margin: 25px auto;
+  width: 900px;
+}
+
+
